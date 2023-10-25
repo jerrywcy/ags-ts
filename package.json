@@ -8,8 +8,9 @@
     "author": "Chuyi Wang",
     "license": "MIT",
     "description": "A package containing definition and import that makes writing configuration for [ags](https://github.com/Aylur/ags) in typescript easier.",
-    "main": "./dist/index.js",
-    "typings": "./dist/index.d.ts",
+    "repository": "https://github.com/jerrywcy/ags-ts",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
     "type": "module",
     "scripts": {
         "clean": "rm -rf ./dist",
@@ -38,6 +39,7 @@
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^15.2.3",
         "@trivago/prettier-plugin-sort-imports": "^4.2.1",
+        "conventional-changelog-conventionalcommits": "^7.0.2",
         "npm-run-all": "^4.1.5",
         "prettier": "^3.0.3",
         "prettier-plugin-organize-imports": "^3.2.3",

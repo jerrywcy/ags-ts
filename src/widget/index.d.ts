@@ -120,7 +120,7 @@ export interface BaseProps<Self> {
     connections?: Array<
         | [string, (self: Self, ...args: unknown[]) => unknown]
         | [number, (self: Self, ...args: unknown[]) => unknown]
-        | [GObject.Object, (self: Self, ...args: unknown[]) => unknown, string]
+        | [GObject.Object, (self: Self, ...args: unknown[]) => unknown, string?]
     >;
 
     /**

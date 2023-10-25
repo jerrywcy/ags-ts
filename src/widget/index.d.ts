@@ -153,7 +153,7 @@ export interface BaseProps<Self> {
 }
 
 type WidgetConstructor<W extends Gtk.Widget, P> = (
-    props: (P & BaseProps<W>) | any
+    props: P & BaseProps<W>
 ) => W;
 
 interface WidgetConstructProps {

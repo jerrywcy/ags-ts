@@ -1,0 +1,51 @@
+{
+    "name": "ags-ts",
+    "version": "1.0.0",
+    "keywords": [
+        "ags",
+        "typescript"
+    ],
+    "author": "Chuyi Wang",
+    "license": "MIT",
+    "description": "A package containing definition and import that makes writing configuration for [ags](https://github.com/Aylur/ags) in typescript easier.",
+    "main": "./dist/index.js",
+    "typings": "./dist/index.d.ts",
+    "type": "module",
+    "scripts": {
+        "clean": "rm -rf ./dist",
+        "prebuild": "run-s format && run-s check && run-s clean",
+        "build": "rollup -c",
+        "format": "prettier -w ./src/*",
+        "check": "tsc -noEmit"
+    },
+    "files": [
+        "README.md",
+        "dist/**"
+    ],
+    "dependencies": {
+        "@girs/cairo-1.0": "^1.0.0-3.2.2",
+        "@girs/dbusmenugtk3-0.4": "^0.4.0-3.2.2",
+        "@girs/gdk-3.0": "3.24.39-3.2.2",
+        "@girs/gdkpixbuf-2.0": "^2.0.0-3.2.2",
+        "@girs/gio-2.0": "^2.77.0-3.2.2",
+        "@girs/glib-2.0": "2.77.0-3.2.2",
+        "@girs/gobject-2.0": "^2.77.0-3.2.2",
+        "@girs/gtk-3.0": "^3.24.39-3.2.2",
+        "@girs/gvc-1.0": "^1.0.0-3.2.2",
+        "@girs/nm-1.0": "^1.45.1-3.2.2",
+        "prettier-plugin-jsdoc": "^1.1.1"
+    },
+    "devDependencies": {
+        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@trivago/prettier-plugin-sort-imports": "^4.2.1",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^3.0.3",
+        "prettier-plugin-organize-imports": "^3.2.3",
+        "rollup": "^4.1.4",
+        "rollup-plugin-dts": "^6.1.0",
+        "semantic-release": "^22.0.5",
+        "tsc-prog": "^2.3.0",
+        "tslib": "^2.6.2",
+        "typescript": "^5.2.2"
+    }
+}

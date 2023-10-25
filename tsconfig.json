@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "declaration": true,
+        "esModuleInterop": true,
+        "allowJs": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        },
+        "outDir": "dist"
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
+}

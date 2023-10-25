@@ -1,0 +1,9 @@
+export { default as Applications } from './applications';
+export { default as Audio } from './audio';
+export { default as Battery } from './battery';
+export { default as Bluetooth } from './bluetooth';
+export { default as Hyprland } from './hyprland';
+export { default as Mpris } from './mpris';
+export { default as Network } from './network';
+export { default as Notifications } from './notifications';
+export { default as SystemTray } from './systemtray';

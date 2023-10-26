@@ -80,6 +80,8 @@ export type {
  */
 export type Command = string | ((...args: unknown[]) => any);
 
+type AlignInString = 'fill' | 'start' | 'end' | 'center' | 'baseline';
+
 export interface BaseProps<Self> {
     /**
      * List of class CSS selectors separated by white space.
@@ -105,12 +107,12 @@ export interface BaseProps<Self> {
     /**
      * Horizontal alignment.
      */
-    halign?: 'fill' | 'start' | 'end' | 'center' | 'baseline';
+    halign?: AlignInString;
 
     /**
      * Vertical alignment.
      */
-    valign?: 'fill' | 'start' | 'end' | 'center' | 'baseline';
+    valign?: AlignInString;
 
     /**
      * Every connection can be one of `['signal', callback]`, `[number,
@@ -153,7 +155,10 @@ export interface BaseProps<Self> {
 }
 
 type WidgetConstructor<W extends Gtk.Widget, P> = (
-    props: P & BaseProps<W>
+    props: P &
+        BaseProps<W> & { style?: Gtk.Style | string } & {
+            valign?: AlignInString | Gtk.Align;
+        } & { halign?: AlignInString | Gtk.Align }
 ) => W;
 
 interface WidgetConstructProps {

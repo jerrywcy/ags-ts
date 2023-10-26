@@ -154,15 +154,31 @@ export interface BaseProps<Self> {
     setup?: (self: Self) => void;
 }
 
-type Merge<A, B> = {
-    [K in keyof A | keyof B]: K extends keyof A & keyof B
-        ? A[K] | B[K]
-        : K extends keyof B
-        ? B[K]
-        : K extends keyof A
-        ? A[K]
-        : never;
+type OptionalPropertyOf<T> = Exclude<
+    {
+        [K in keyof T]: T extends Record<K, T[K]> ? never : K;
+    }[keyof T],
+    undefined
+>;
+
+type First<T1, T2> = {
+    [K in keyof T1]: K extends keyof T2 ? T1[K] | T2[K] : T1[K];
 };
+
+type OptionalSecond<T1, T2> = {
+    [K in Exclude<OptionalPropertyOf<T2>, keyof T1>]+?: T2[K];
+};
+
+type NonOptionalSecond<T1, T2> = {
+    [K in Exclude<
+        keyof T2,
+        keyof First<T1, T2> | keyof OptionalSecond<T1, T2>
+    >]: T2[K];
+};
+
+type Merge<T1, T2> = First<T1, T2> &
+    OptionalSecond<T1, T2> &
+    NonOptionalSecond<T1, T2>;
 
 type WidgetConstructor<W extends Gtk.Widget, P> = (
     props: Merge<P, BaseProps<W>>

@@ -78,7 +78,7 @@ export type {
  * and slider's `onChange` `"{}"` substring will get replaced with the widget's
  * value
  */
-export type Command = string | ((...args: unknown[]) => boolean);
+export type Command = string | ((...args: unknown[]) => any);
 
 export interface BaseProps<Self> {
     /**

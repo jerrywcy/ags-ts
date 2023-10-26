@@ -154,11 +154,18 @@ export interface BaseProps<Self> {
     setup?: (self: Self) => void;
 }
 
+type Merge<A, B> = {
+    [K in keyof A | keyof B]: K extends keyof A & keyof B
+        ? A[K] | B[K]
+        : K extends keyof B
+        ? B[K]
+        : K extends keyof A
+        ? A[K]
+        : never;
+};
+
 type WidgetConstructor<W extends Gtk.Widget, P> = (
-    props: P &
-        BaseProps<W> & { style?: Gtk.Style | string } & {
-            valign?: AlignInString | Gtk.Align;
-        } & { halign?: AlignInString | Gtk.Align }
+    props: Merge<P, BaseProps<W>>
 ) => W;
 
 interface WidgetConstructProps {
